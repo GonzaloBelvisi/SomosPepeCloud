@@ -1,0 +1,8 @@
+C:\Users\usuario\Desktop\SomosPepeCloud\SitradWebInterface\publish\SitradWebInterface.exe
+C:\Users\usuario\Desktop\SomosPepeCloud\SitradWebInterface\publish\appsettings.Development.json
+C:\Users\usuario\Desktop\SomosPepeCloud\SitradWebInterface\publish\appsettings.json
+C:\Users\usuario\Desktop\SomosPepeCloud\SitradWebInterface\publish\SitradWebInterface.dll
+C:\Users\usuario\Desktop\SomosPepeCloud\SitradWebInterface\publish\SitradWebInterface.deps.json
+C:\Users\usuario\Desktop\SomosPepeCloud\SitradWebInterface\publish\SitradWebInterface.runtimeconfig.json
+C:\Users\usuario\Desktop\SomosPepeCloud\SitradWebInterface\publish\SitradWebInterface.pdb
+C:\Users\usuario\Desktop\SomosPepeCloud\SitradWebInterface\publish\Newtonsoft.Json.dll

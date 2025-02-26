@@ -1,0 +1,64 @@
+@model List<SitradWebInterface.Models.CameraViewModel>
+
+@{
+    ViewData["Title"] = "Dashboard de Cámaras";
+}
+
+<h2>Dashboard de Cámaras</h2>
+
+<table id="dashboardTable" class="table">
+    <thead>
+        <tr>
+            <th>Cámara</th>
+            <th>Temperatura</th>
+            <th>Humedad</th>
+            <th>Evaporador</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var camera in Model)
+        {
+            <tr>
+                <td>@camera.CameraName</td>
+                <td>@camera.Temperature</td>
+                <td>@camera.Humidity</td>
+                <td>@camera.PulpTemperature</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Incluir jQuery (desde CDN) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function updateDashboard() {
+        $.ajax({
+            url: '/Sitrad/GetDashboardData',
+            method: 'GET',
+            success: function (data) {
+                var tbody = $('#dashboardTable tbody');
+                tbody.empty();
+                $.each(data, function (index, camera) {
+                    tbody.append(
+                        '<tr>' +
+                        '<td>' + camera.cameraName + '</td>' +
+                        '<td>' + camera.temperature + '</td>' +
+                        '<td>' + camera.humidity + '</td>' +
+                        '<td>' + camera.pulpTemperature + '</td>' +
+                        '</tr>'
+                    );
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error("Error al actualizar el dashboard: " + error);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        // Actualizar inmediatamente al cargar la página
+        updateDashboard();
+        // Actualizar cada 1000 milisegundos (1 segundo)
+        setInterval(updateDashboard, 1000);
+    });
+</script>
